@@ -1,0 +1,16 @@
+#org: bblanc
+#app: aws-python-molecules
+service: aws-python-molecules
+
+provider:
+  name: aws
+  runtime: python3.8
+
+functions:
+  main:
+    handler: handler.main
+    events:
+      - http:
+          path: /main
+          method: post
+
