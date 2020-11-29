@@ -147,24 +147,38 @@ def count_atoms(string, mult, dic):
             dic[atom] = mult
 
     else:
-        if string[1].islower():
-            if string[2].islower():
-                atom = string[0:3]
-                next_i = 3
-            else:
-                atom = string[0:2]
-                next_i = 2
-        else:
-            atom = string[0]
-            next_i = 1
-
-        if string[next_i].isdigit():
-            if atom in dic:
-                dic[atom] += mult * int(string[next_i])
-            else:
-                dic[atom] = mult * int(string[next_i])
-        else:
+        i = 1
+        while (string[i].islower()) & (i<length-1):
+            i+=1
+        if string[i].islower(): #i == length-1:
+            atom = string
             if atom in dic:
                 dic[atom] += mult
             else:
                 dic[atom] = mult
+
+        else:
+            atom = string[:i]
+            next_i = i
+
+            if length == next_i:
+                if atom in dic:
+                    dic[atom] += mult
+                else:
+                    dic[atom] = mult
+            else:
+                if string[next_i].isdigit():
+                    i = 0
+                    while (string[next_i + i].isdigit()) & (next_i+i<length):
+                        i+=1
+                    number = string[next_i:next_i+i]
+
+                    if atom in dic:
+                        dic[atom] += mult * int(number)
+                    else:
+                        dic[atom] = mult * int(number)
+                else:
+                    if atom in dic:
+                        dic[atom] += mult
+                    else:
+                        dic[atom] = mult
