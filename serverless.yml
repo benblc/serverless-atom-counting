@@ -14,3 +14,8 @@ functions:
           path: /main
           method: post
 
+#plugins:
+#  - serverless-wsgi
+
+plugins:
+  - serverless-python-requirements
