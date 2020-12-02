@@ -13,6 +13,6 @@ To try a simple request to the api:
 `curl -X POST --data "H2O" https://dwptzvjyoj.execute-api.us-east-1.amazonaws.com/dev/main`
 
 #### In python:
-`import request`
-`url = 'https://dwptzvjyoj.execute-api.us-east-1.amazonaws.com/dev/main'`
+`import request`   
+`url = 'https://dwptzvjyoj.execute-api.us-east-1.amazonaws.com/dev/main'`   
 `print(json.loads(requests.post(url, data=selected_molecule).text))`
